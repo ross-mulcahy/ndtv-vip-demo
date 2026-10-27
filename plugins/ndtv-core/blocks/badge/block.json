@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ndtv/badge",
+	"version": "0.1.0",
+	"title": "NDTV Badge",
+	"category": "theme",
+	"icon": "tag",
+	"description": "Small badge for the current post: video duration, LIVE marker, play icon, section name or channel. Use inside a Query Loop.",
+	"textdomain": "ndtv-core",
+	"usesContext": [ "postId", "postType" ],
+	"attributes": {
+		"type": { "type": "string", "default": "duration", "enum": [ "duration", "live", "play", "section", "channel" ] }
+	},
+	"supports": { "html": false, "spacing": { "margin": true } },
+	"editorScript": "ndtv-core-editor",
+	"render": "file:./render.php"
+}

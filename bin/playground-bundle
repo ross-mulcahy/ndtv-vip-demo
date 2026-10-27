@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Build the Playground bundle: dist/bundle/ (directory) and dist/ndtv-playground.zip.
+#
+#   bin/playground-bundle          build only
+#   bin/playground-bundle --serve  build, then boot it locally with the Playground CLI
+#
+# With GITHUB_REPO=owner/name set, also write blueprint.public.json: the same
+# blueprint, but installing the theme and plugin straight from that public repo
+# (git:directory resources), so playground.wordpress.net can boot it from a link.
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+OUT="$ROOT/dist/bundle"
+
+rm -rf "$ROOT/dist"
+mkdir -p "$OUT"
+
+(cd "$ROOT/themes" && zip -qr "$OUT/ndtv.zip" ndtv -x '*.DS_Store')
+(cd "$ROOT/plugins" && zip -qr "$OUT/ndtv-core.zip" ndtv-core -x '*.DS_Store')
+cp "$ROOT/blueprint.json" "$OUT/blueprint.json"
+(cd "$OUT" && zip -qr "$ROOT/dist/ndtv-playground.zip" blueprint.json ndtv.zip ndtv-core.zip)
+
+echo "Built $(du -h "$ROOT/dist/ndtv-playground.zip" | cut -f1) bundle: dist/ndtv-playground.zip"
+
+if [[ -n "${GITHUB_REPO:-}" ]]; then
+	python3 -I - "$ROOT/blueprint.json" "$ROOT/blueprint.public.json" "$GITHUB_REPO" "${GITHUB_REF:-main}" <<'PY'
+import json, sys
+src, dest, repo, ref = sys.argv[1:]
+paths = {'/ndtv.zip': 'themes/ndtv', '/ndtv-core.zip': 'plugins/ndtv-core'}
+bp = json.load(open(src))
+for step in bp['steps']:
+    for key in ('themeData', 'pluginData'):
+        res = step.get(key)
+        if res and res.get('resource') == 'bundled' and res.get('path') in paths:
+            step[key] = {'resource': 'git:directory', 'url': f'https://github.com/{repo}', 'ref': ref, 'refType': 'branch', 'path': paths[res['path']]}
+json.dump(bp, open(dest, 'w'), indent='\t')
+open(dest, 'a').write('\n')
+PY
+	echo "Wrote blueprint.public.json"
+	echo "Share link: https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/$GITHUB_REPO/${GITHUB_REF:-main}/blueprint.public.json"
+fi
+
+if [[ "${1:-}" == "--serve" ]]; then
+	exec npx -y @wp-playground/cli@latest server --blueprint="$ROOT/dist/ndtv-playground.zip" --port="${PORT:-9400}"
+fi

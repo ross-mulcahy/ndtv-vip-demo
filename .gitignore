@@ -1,0 +1,6 @@
+dist/
+recon/
+.playwright-mcp/
+.DS_Store
+node_modules/
+PLAN.md

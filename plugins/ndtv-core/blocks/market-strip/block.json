@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ndtv/market-strip",
+	"version": "0.1.0",
+	"title": "NDTV Market Strip",
+	"category": "theme",
+	"icon": "chart-line",
+	"description": "Masthead utilities: gold and silver rates, date and time in IST, city weather with AQI, network grid and login. Demo values on Playground.",
+	"textdomain": "ndtv-core",
+	"attributes": {
+		"city": { "type": "string", "default": "Delhi" }
+	},
+	"supports": { "html": false },
+	"editorScript": "ndtv-core-editor",
+	"render": "file:./render.php"
+}

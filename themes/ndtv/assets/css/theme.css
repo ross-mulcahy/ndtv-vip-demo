@@ -1,0 +1,347 @@
+/* NDTV theme components. Tokens live in theme.json; this file only holds layout and chrome. */
+
+:root {
+	--ndtv-red: var(--wp--preset--color--red);
+	--ndtv-ink: var(--wp--preset--color--ink);
+	--ndtv-rule: var(--wp--preset--color--rule);
+	--ndtv-grey: var(--wp--preset--color--grey);
+	--ndtv-serif: var(--wp--preset--font-family--noto-serif);
+}
+
+body { margin: 0; }
+.wp-site-blocks { padding: 0; }
+.wp-site-blocks > * { margin-block-start: 0; }
+
+.ndtv-container { box-sizing: border-box; max-width: 1300px; margin-inline: auto !important; padding-inline: 16px; }
+
+/* Masthead */
+.ndtv-masthead { background: #000; color: #fff; position: sticky; top: 0; z-index: 50; }
+.admin-bar .ndtv-masthead { top: 32px; }
+.ndtv-masthead__bar { min-height: 48px; gap: 20px; }
+.ndtv-logo { display: block; flex: none; line-height: 0; margin-block: -4px; }
+.ndtv-logo svg { height: 52px; width: auto; }
+.ndtv-nav { flex: 1; min-width: 0; }
+.ndtv-nav .wp-block-navigation__container { gap: 20px; flex-wrap: nowrap; }
+.ndtv-nav .wp-block-navigation-item__content { color: #fff; white-space: nowrap; font-size: 15px; font-weight: 600; }
+.ndtv-nav .wp-block-navigation-item__content:hover { color: #fff; text-decoration: underline; text-underline-offset: 6px; }
+.ndtv-nav .is-live .wp-block-navigation-item__content::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: var(--ndtv-red); vertical-align: middle; }
+.ndtv-nav .wp-block-navigation__responsive-container-open { color: #fff; }
+
+.ndtv-market-strip { display: flex; align-items: center; gap: 16px; flex: none; font-size: 12px; line-height: 1.35; }
+.ndtv-market-strip__rates { display: flex; gap: 12px; }
+.ndtv-market-strip__rate { display: flex; flex-direction: column; text-align: right; }
+.ndtv-market-strip__label { color: #f5b800; font-weight: 700; }
+.ndtv-market-strip__value { font-weight: 700; }
+.ndtv-market-strip__when { display: flex; flex-direction: column; padding-left: 16px; border-left: 1px solid #333; white-space: nowrap; }
+.ndtv-market-strip__weather { font-weight: 700; display: inline-flex; gap: 4px; align-items: center; }
+.ndtv-market-strip__aqi { font-weight: 400; }
+.ndtv-market-strip__aqi b { color: #f5b800; }
+.ndtv-market-strip__aqi.is-poor b { color: var(--ndtv-red); }
+.ndtv-market-strip__icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #222; color: #fff; }
+.ndtv-market-strip__icon:hover { background: var(--ndtv-red); color: #fff; }
+
+/* Quick links */
+.ndtv-quicklinks { border-bottom: 1px solid var(--ndtv-rule); }
+.ndtv-quicklinks__row { display: flex; gap: 24px; align-items: center; margin: 0; padding-block: 10px; overflow-x: auto; white-space: nowrap; font-size: 14px; font-weight: 500; scrollbar-width: none; }
+.ndtv-quicklinks__label { color: var(--ndtv-red); font-weight: 700; text-transform: uppercase; }
+.ndtv-quicklinks__label::after { content: " ›"; }
+
+/* askNDTV bar */
+.ndtv-ask { margin: 20px 0; }
+.ndtv-ask .wp-block-search__inside-wrapper { border: 1px solid #ddd !important; border-radius: 28px; padding: 6px 6px 6px 20px !important; background: #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, .06); align-items: center; }
+.ndtv-ask .wp-block-search__inside-wrapper::before { content: "askNDTV"; font-weight: 800; font-size: 17px; letter-spacing: -.02em; color: var(--ndtv-ink); padding-right: 16px; margin-right: 8px; border-right: 1px solid var(--ndtv-rule); white-space: nowrap; flex: none; }
+.ndtv-ask .wp-block-search__input { border: 0; font-size: 16px; padding: 8px; }
+.ndtv-ask .wp-block-search__button { border-radius: 50%; width: 38px; height: 38px; padding: 0; margin: 0; background: #8a8a8a; display: grid; place-items: center; }
+
+/* Shared story pieces */
+.wp-block-post-title { margin: 0; }
+.wp-block-post-title a { color: var(--ndtv-ink); }
+.wp-block-post-title a:hover { color: var(--ndtv-red); }
+.ndtv-kicker { display: inline-block; padding: 1px 5px; margin-right: 4px; background: var(--ndtv-red); color: #fff; font-family: var(--ndtv-serif); font-weight: 700; font-size: 13px; line-height: 1.4; vertical-align: 2px; }
+.ndtv-lead__title .ndtv-kicker, .ndtv-article__title .ndtv-kicker { font-size: 16px; vertical-align: 6px; }
+.ndtv-scorecard { color: var(--ndtv-red) !important; text-decoration: underline; text-underline-offset: 3px; }
+.ndtv-scorecard-sep { color: var(--ndtv-grey); }
+.wp-block-post-featured-image { margin: 0 0 10px; overflow: hidden; }
+.wp-block-post-featured-image img { transition: transform .3s ease; }
+.wp-block-post-featured-image a:hover img { transform: scale(1.03); }
+.wp-block-query .wp-block-post-template { margin: 0; padding: 0; list-style: none; }
+.wp-block-separator.ndtv-rule { border: 0; border-top: 1px solid var(--ndtv-rule); margin: 28px 0; opacity: 1; }
+
+/* Top zone */
+.ndtv-top { gap: 32px; margin-bottom: 32px; }
+.ndtv-lead { gap: 24px; margin: 0; }
+.ndtv-lead > .wp-block-column:first-child { flex-basis: 50% !important; flex-grow: 0; }
+.ndtv-lead__title { font-size: var(--wp--preset--font-size--xx-large); line-height: 1.25; }
+.ndtv-stack .wp-block-post-template > li + li { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--ndtv-rule); }
+.ndtv-stack .wp-block-post-template > li + li .wp-block-post-featured-image { display: none; }
+.ndtv-stack .wp-block-post-title, .ndtv-four-up .wp-block-post-title { font-size: 16px; line-height: 1.4; }
+.ndtv-four-up .wp-block-post-template { gap: 28px 24px; }
+
+/* Right rail */
+.ndtv-rail-col { border-left: 0; }
+.ndtv-rail { display: flex; flex-direction: column; gap: 20px; padding-top: 20px; }
+.ndtv-rail > * { margin: 0 !important; }
+.ndtv-ad { background: var(--wp--preset--color--panel); padding: 8px 16px 16px; text-align: center; }
+.ndtv-ad__label { margin: 0 0 6px; font-size: 11px; color: var(--ndtv-grey); }
+.ndtv-ad__slot { margin: 0 auto; max-width: 300px; aspect-ratio: 6 / 5; display: grid; place-items: center; border: 1px dashed #ccc; color: var(--ndtv-grey); font-size: 13px; background: #fff; }
+.ndtv-native { padding-bottom: 16px; border-bottom: 2px solid #bbb; }
+.ndtv-native__title { margin: 0; font-family: var(--ndtv-serif); font-size: 17px; font-weight: 500; line-height: 1.35; }
+.ndtv-native__meta { margin: 4px 0 0; font-size: 12px; color: var(--ndtv-grey); }
+.ndtv-rail__head { margin: 0; padding-top: 14px; border-top: 2px solid #ccc; font-size: 26px; }
+.ndtv-rail__head a::after { content: " ›"; }
+.ndtv-rail__head.is-live a::before { content: "•"; color: var(--ndtv-red); margin-right: 6px; }
+.ndtv-rail__head.is-live a::after { content: ""; }
+.ndtv-bullets .wp-block-post-template > li { position: relative; padding: 10px 0 10px 22px; border-bottom: 1px solid var(--ndtv-rule); }
+.ndtv-bullets .wp-block-post-template > li::before { content: ""; position: absolute; left: 0; top: 17px; width: 8px; height: 8px; border: 2px solid var(--ndtv-grey); border-radius: 50%; }
+.ndtv-bullets .wp-block-post-title { font-size: 16px; line-height: 1.4; }
+.ndtv-micro .wp-block-post-template { gap: 10px; }
+.ndtv-micro .wp-block-post-featured-image { border-radius: 8px; margin-bottom: 6px; }
+.ndtv-micro .wp-block-post-title { font-family: var(--wp--preset--font-family--inter); font-size: 12px; font-weight: 600; line-height: 1.35; }
+.ndtv-deals { margin: 0; padding: 0; list-style: none; font-size: 14px; }
+.ndtv-deals li { padding: 10px 0; border-bottom: 1px solid var(--ndtv-rule); }
+.ndtv-deals span { display: block; color: var(--ndtv-red); font-weight: 700; font-size: 12px; }
+.ndtv-deals__note { margin: 4px 0 0; font-size: 11px; color: var(--ndtv-grey); }
+
+/* Thumbnails with badges */
+.ndtv-thumb { position: relative; flex: none; }
+.ndtv-thumb .wp-block-post-featured-image { margin: 0; }
+[data-ndtv-preview] { position: relative; overflow: hidden; }
+.ndtv-preview-clip { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.ndtv-thumb .ndtv-badge { z-index: 2; }
+.ndtv-badge { display: inline-block; font-size: 11px; font-weight: 700; line-height: 1.5; }
+.ndtv-thumb .ndtv-badge { position: absolute; left: 6px; bottom: 6px; margin: 0; padding: 0 6px; border-radius: 2px; background: rgba(0, 0, 0, .75); color: #fff; }
+.ndtv-thumb .ndtv-badge::before { content: "▶ "; font-size: 9px; }
+.ndtv-thumb .ndtv-badge.is-live { background: var(--ndtv-red); }
+.ndtv-thumb .ndtv-badge.is-live::before { content: "● "; }
+.ndtv-micro .ndtv-thumb { margin-bottom: 6px; }
+
+.ndtv-rows .wp-block-post-template > li + li { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--ndtv-rule); }
+.ndtv-row { gap: 12px; }
+.ndtv-row .ndtv-thumb { width: 38%; max-width: 160px; }
+.ndtv-row .wp-block-post-title { font-size: 15px; line-height: 1.4; flex: 1; }
+
+/* Videos band */
+.ndtv-videos { background: var(--wp--preset--color--night); color: #eee; padding-block: 28px 36px; margin-block: 8px 32px; }
+.ndtv-videos .ndtv-section__head { border-color: #333; }
+.ndtv-videos .ndtv-section__title a, .ndtv-videos .wp-block-post-title a, .ndtv-videos h3 { color: #fff; }
+.ndtv-videos .wp-block-post-title a:hover { color: #ff6b70; }
+.ndtv-videos .ndtv-tabs a { color: #bbb; }
+.ndtv-videos .ndtv-tabs a.is-active { color: #fff; border-color: var(--ndtv-red); }
+.ndtv-videos__body { gap: 32px; }
+.ndtv-videos__subhead { margin: 0 0 12px; font-size: 20px; }
+.ndtv-videos .ndtv-rows .wp-block-post-template > li + li { border-color: #333; }
+.ndtv-videos .ndtv-player__caption a { color: #fff; font-size: 22px; }
+
+/* Section blocks */
+.ndtv-sections { padding-bottom: 24px; }
+.ndtv-pair, .ndtv-quad { gap: 40px; margin-bottom: 36px; }
+.ndtv-section__head { align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ndtv-ink); }
+.ndtv-section__title { margin: 0; font-size: 26px; }
+.ndtv-section__title a::after { content: " ›"; }
+.ndtv-tabs { display: flex; gap: 18px; margin: 0; max-width: 100%; overflow-x: auto; white-space: nowrap; scrollbar-width: none; font-size: 14px; font-weight: 600; }
+.ndtv-tabs a { color: var(--ndtv-grey); padding-bottom: 4px; border-bottom: 2px solid transparent; }
+.ndtv-tabs a.is-active, .ndtv-tabs a:hover { color: var(--ndtv-ink); border-color: var(--ndtv-red); }
+.ndtv-section__body { gap: 20px; margin: 0; }
+.ndtv-section__lead .wp-block-post-title { font-size: 18px; line-height: 1.35; }
+.ndtv-section.is-compact .ndtv-section__title { font-size: 22px; }
+.ndtv-list .wp-block-post-template > li { padding: 10px 0; border-top: 1px solid var(--ndtv-rule); }
+.ndtv-list .wp-block-post-title { font-size: 15px; line-height: 1.4; }
+
+/* Article */
+.ndtv-single { padding-top: 24px; }
+.ndtv-article > * + * { margin-top: 14px; }
+.ndtv-article__title { font-size: var(--wp--preset--font-size--huge); line-height: 1.2; }
+.ndtv-article__dek { font-size: 19px; color: var(--wp--preset--color--text); }
+.ndtv-article__dek p { margin: 0; }
+.ndtv-byline { gap: 12px; padding: 10px 0; border-block: 1px solid var(--ndtv-rule); font-size: 13px; }
+.ndtv-byline .wp-block-post-author-name a { color: var(--ndtv-red); }
+.ndtv-article__body { max-width: 760px; }
+.ndtv-article__tags a { display: inline-block; margin: 0 6px 6px 0; padding: 4px 10px; border: 1px solid var(--ndtv-rule); border-radius: 14px; color: var(--ndtv-ink); text-transform: none; letter-spacing: 0; font-weight: 500; }
+.ndtv-article__tags .wp-block-post-terms__separator { display: none; }
+.ndtv-demo-note { font-size: 14px; color: var(--ndtv-grey); border-top: 1px solid var(--ndtv-rule); padding-top: 12px; }
+
+/* Listings */
+.ndtv-archive { padding-top: 24px; }
+.ndtv-archive__title { margin: 0 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ndtv-ink); font-size: 32px; }
+.ndtv-listing__item { gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--ndtv-rule); }
+.ndtv-listing__thumb { width: 260px; flex: none; margin: 0; }
+.ndtv-listing__text .wp-block-post-title { font-size: 21px; line-height: 1.35; }
+.ndtv-listing__text .wp-block-post-excerpt { margin: 6px 0; }
+.ndtv-listing__text .wp-block-post-excerpt p { margin: 0; }
+.ndtv-listing__text .ndtv-byline { border: 0; padding: 0; }
+.ndtv-listing .wp-block-query-pagination { margin-top: 24px; font-weight: 600; }
+
+/* Pages */
+.ndtv-page { padding-block: 40px; }
+
+/* Footer */
+.ndtv-footer { background: #111; color: #bbb; padding-block: 32px; margin-top: 24px; font-size: 14px; }
+.ndtv-footer a { color: #fff; }
+.ndtv-footer__sections { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid #333; font-weight: 600; }
+.ndtv-footer__head { color: #fff; margin: 0 0 6px; font-family: var(--wp--preset--font-family--inter); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+.ndtv-footer__sites { margin: 0 0 20px; }
+.ndtv-footer__legal { margin: 0; font-size: 12px; color: #888; }
+
+/* Responsive */
+@media (max-width: 1180px) {
+	.ndtv-market-strip__rates, .ndtv-market-strip__icon:first-of-type { display: none; }
+}
+@media (max-width: 1024px) {
+	.ndtv-market-strip__when { display: none; }
+	.ndtv-four-up .wp-block-post-template { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 781px) {
+	.admin-bar .ndtv-masthead { top: 46px; }
+	.ndtv-masthead__bar { gap: 12px; }
+	.ndtv-logo svg { height: 44px; }
+	.ndtv-nav { order: -1; flex: none; }
+	.ndtv-lead > .wp-block-column:first-child { flex-basis: 100% !important; }
+	.ndtv-top, .ndtv-pair, .ndtv-quad, .ndtv-videos__body { gap: 24px; }
+	.ndtv-lead__title { font-size: 24px; }
+	.ndtv-listing__thumb { width: 38%; }
+	.ndtv-listing__text .wp-block-post-title { font-size: 17px; }
+	.ndtv-listing__text .wp-block-post-excerpt { display: none; }
+	.ndtv-article__title { font-size: 28px; }
+	.ndtv-ask .wp-block-search__inside-wrapper::before { font-size: 15px; padding-right: 10px; }
+	.ndtv-ask .wp-block-search__input { font-size: 15px; }
+}
+
+/* ===== Video app (/video/, single video, video taxonomies) ===== */
+.ndtv-video-app { background: #121212; color: #ddd; }
+.ndtv-video-app a { color: #fff; }
+.ndtv-video-app a:hover { color: #ff6b70; }
+.ndtv-video-app .wp-block-post-title a { color: #f2f2f2; }
+.ndtv-video-app .wp-block-post-title a:hover { color: #ff6b70; }
+.ndtv-video-app h1, .ndtv-video-app h2, .ndtv-video-app h3 { color: #fff; }
+.ndtv-video-app .wp-block-post-date { color: #8a8a8a; }
+.ndtv-video-app + .wp-block-template-part .ndtv-footer, .ndtv-video-app ~ * .ndtv-footer { margin-top: 0; }
+
+.ndtv-vshell { gap: 0 !important; margin: 0; max-width: 1600px; margin-inline: auto; }
+.ndtv-vshell__nav { flex: 0 0 240px !important; border-right: 1px solid #262626; }
+.ndtv-vshell__main { min-width: 0; padding: 24px 32px 48px; }
+
+.ndtv-vnav { position: sticky; top: 48px; padding: 20px 16px; }
+.admin-bar .ndtv-vnav { top: 80px; }
+.ndtv-vsearch .wp-block-search__inside-wrapper { border: 1px solid #333 !important; border-radius: 20px; background: #1e1e1e; padding: 2px 4px 2px 12px !important; }
+.ndtv-vsearch .wp-block-search__input { background: transparent; border: 0; color: #fff; font-size: 14px; }
+.ndtv-vsearch .wp-block-search__button { background: transparent; color: #aaa; padding: 6px; margin: 0; }
+.ndtv-vnav__title { margin: 24px 0 12px; font-family: var(--wp--preset--font-family--inter); font-size: 20px; font-weight: 600; }
+.ndtv-vnav__links { display: flex; flex-direction: column; gap: 4px; margin: 0; }
+.ndtv-vnav__links a { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-radius: 6px; background: #1a1a1a; color: #ccc; font-size: 14px; font-weight: 500; }
+.ndtv-vnav__links a:hover { background: #262626; color: #fff; }
+.ndtv-vnav__links a::before { content: ""; width: 16px; height: 16px; flex: none; background: currentColor; -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+.ndtv-vnav__links .is-live::before { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 7h18v12H3zM8 3l4 4 4-4' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E"); }
+.ndtv-vnav__links .is-latest::before { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E"); }
+.ndtv-vnav__links .is-shorts::before { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='6' y='2' width='12' height='20' rx='3' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M10 9v6l5-3z'/%3E%3C/svg%3E"); }
+.ndtv-vnav__links .is-categories::before { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E"); }
+.ndtv-vnav__links .is-shows::before { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='5' width='18' height='14' rx='2' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M10 9v6l5-3z'/%3E%3C/svg%3E"); }
+.ndtv-vnav__links .is-top::before { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2L4 14h7l-1 8 9-12h-7z' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E"); }
+.ndtv-vnav__links .is-classics::before { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M3 9h18M3 15h18M9 3v18M15 3v18' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E"); }
+.ndtv-vnav__ad { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid #262626; text-align: center; font-size: 11px; color: #666; }
+
+.ndtv-vhub__title { margin: 0; font-family: var(--wp--preset--font-family--inter); font-size: 32px; font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; }
+.ndtv-vhub__intro, .ndtv-vhub__intro p { margin: 6px 0 0; color: #aaa; font-size: 16px; }
+.ndtv-vsection { margin-top: 36px; padding-top: 28px; border-top: 1px solid #262626; }
+.ndtv-vhub > .ndtv-vsection:first-of-type { border-top: 0; padding-top: 0; }
+.ndtv-vhead { margin: 0 0 16px; font-family: var(--wp--preset--font-family--inter); font-size: 22px; font-weight: 700; }
+.ndtv-vhead a::after { content: " →"; font-weight: 400; }
+.ndtv-vnote { margin: -8px 0 16px; font-size: 13px; color: #888; }
+
+/* Video tiles */
+.ndtv-video-app .ndtv-thumb .wp-block-post-featured-image { border-radius: 6px; }
+.ndtv-video-app .wp-block-post-template .wp-block-post-title { margin-top: 10px; font-family: var(--wp--preset--font-family--inter); font-size: 15px; font-weight: 500; line-height: 1.4; }
+.ndtv-video-app .wp-block-post-template .wp-block-post-date { margin-top: 6px; font-size: 12px; }
+.ndtv-vgrid .wp-block-post-template { gap: 28px 20px; }
+.ndtv-vlisting { margin-top: 24px; }
+.ndtv-vlisting.is-shorts .wp-block-post-template { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+/* Carousels */
+.ndtv-carousel { position: relative; }
+.ndtv-carousel .wp-block-post-template { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 3 * 20px) / 4); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+.ndtv-carousel .wp-block-post-template::-webkit-scrollbar { display: none; }
+.ndtv-carousel .wp-block-post-template > li { scroll-snap-align: start; min-width: 0; margin: 0; }
+.ndtv-channels__list .wp-block-post-template > li { margin: 0; }
+.ndtv-carousel.ndtv-rail-shorts .wp-block-post-template { grid-auto-columns: calc((100% - 5 * 16px) / 6); gap: 16px; }
+.ndtv-carousel__nav { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
+.ndtv-carousel__btn { width: 60px; height: 30px; border: 1px solid #555; border-radius: 16px; background: transparent; color: #fff; cursor: pointer; }
+.ndtv-carousel__btn.is-prev::before { content: "←"; }
+.ndtv-carousel__btn.is-next::before { content: "→"; }
+.ndtv-carousel__btn:hover:not(:disabled) { border-color: #fff; background: #222; }
+.ndtv-carousel__btn:disabled { opacity: .35; cursor: default; }
+
+/* Live channels */
+.ndtv-channels { gap: 32px; align-items: center; }
+.ndtv-channels__title { flex: none; margin: 0; font-family: var(--wp--preset--font-family--inter); font-size: 44px; font-weight: 800; line-height: 1; text-transform: uppercase; color: #ddd; }
+.ndtv-channels__list { flex: 1; min-width: 0; }
+.ndtv-channels__list .wp-block-post-template { display: flex; gap: 16px; overflow-x: auto; scrollbar-width: none; }
+.ndtv-channel { position: relative; width: 128px; text-align: center; }
+.ndtv-channel .wp-block-post-featured-image { margin: 0; border-radius: 50%; border: 3px solid var(--ndtv-red); }
+.ndtv-channel .wp-block-post-featured-image img { border-radius: 50%; }
+.ndtv-channel .ndtv-badge { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); margin: 0; padding: 0 8px; border-radius: 3px; background: var(--ndtv-red); color: #fff; font-size: 10px; }
+.ndtv-video-app .ndtv-channel .wp-block-post-title { margin-top: 8px; font-size: 13px; font-weight: 600; }
+
+/* Category tabs and bands */
+.ndtv-vtabs { display: flex; gap: 6px; margin: 0 0 24px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; font-size: 15px; font-weight: 600; }
+.ndtv-vtabs a, .ndtv-vtabs__label { padding: 6px 12px; border-radius: 6px; }
+.ndtv-vtabs__label { background: #2a2f38; color: #fff; }
+.ndtv-vtabs a:hover { background: #222; }
+.ndtv-vband { margin-top: 24px; padding: 28px 32px 32px; border-radius: 10px; background: #1d1d1d; scroll-margin-top: 64px; }
+.ndtv-vband__head { gap: 12px 32px; margin-bottom: 24px; }
+.ndtv-vband__title { margin: 0; flex: none; font-family: var(--wp--preset--font-family--inter); font-size: 32px; font-weight: 700; }
+.ndtv-vband__desc { flex: 1 1 320px; margin: 0; color: #999; font-size: 15px; }
+.ndtv-vband__more { margin: 0; }
+.ndtv-vband__more .wp-block-button__link { padding: 8px 12px; border-radius: 4px; font-size: 13px; }
+.ndtv-vsection { scroll-margin-top: 64px; }
+
+/* Shows */
+.ndtv-shows { gap: 16px; }
+.ndtv-show { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 16px; border-radius: 8px; background: #1d1d1d; border-left: 3px solid var(--ndtv-red); }
+.ndtv-show strong { font-size: 16px; }
+.ndtv-show span { color: #aaa; font-size: 14px; }
+.ndtv-show em { color: #777; font-size: 12px; font-style: normal; }
+
+/* Single video */
+.ndtv-single-video .ndtv-player.is-horizontal { max-width: min(100%, calc(70vh * 16 / 9)); }
+.ndtv-single-video .ndtv-player.is-vertical { max-width: min(380px, calc(75vh * 9 / 16)); margin-inline: auto; }
+.ndtv-vmeta { margin-top: 20px; }
+.ndtv-vmeta > * + * { margin-top: 12px; }
+.ndtv-vkicker a { color: var(--ndtv-red) !important; }
+.ndtv-vmeta__title { font-family: var(--ndtv-serif); font-size: 30px; line-height: 1.25; }
+.ndtv-vmeta__line { gap: 14px; color: #999; font-size: 13px; }
+.ndtv-vmeta__line .ndtv-badge { color: var(--ndtv-red); text-transform: uppercase; letter-spacing: .04em; }
+.ndtv-vmeta__line .wp-block-post-terms a { color: #ccc; }
+.ndtv-vmeta__desc { color: #bbb; font-size: 16px; }
+.ndtv-vmeta__desc p { margin: 0; }
+.ndtv-video-app .ndtv-article__tags a { border-color: #333; color: #ccc; }
+
+/* Related videos on stories */
+.ndtv-related { margin-top: 36px; padding: 20px; background: var(--wp--preset--color--panel); border-top: 3px solid var(--ndtv-red); }
+.ndtv-related__title { margin: 0 0 16px; font-size: 22px; }
+.ndtv-related .wp-block-post-template { gap: 20px; }
+.ndtv-related .wp-block-post-title { margin-top: 8px; font-size: 15px; line-height: 1.4; }
+
+@media (max-width: 1100px) {
+	.ndtv-carousel .wp-block-post-template { grid-auto-columns: calc((100% - 2 * 20px) / 3); }
+	.ndtv-carousel.ndtv-rail-shorts .wp-block-post-template { grid-auto-columns: calc((100% - 3 * 16px) / 4); }
+	.ndtv-vgrid .wp-block-post-template, .ndtv-vlisting.is-shorts .wp-block-post-template { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 781px) {
+	.ndtv-vshell__nav { flex-basis: 100% !important; border-right: 0; border-bottom: 1px solid #262626; }
+	.ndtv-vnav { position: static; padding: 12px 16px; }
+	.ndtv-vnav__title, .ndtv-vnav__ad { display: none; }
+	.ndtv-vnav__links { flex-direction: row; overflow-x: auto; scrollbar-width: none; margin-top: 12px; }
+	.ndtv-vnav__links a { flex: none; white-space: nowrap; }
+	.ndtv-vshell__main { padding: 20px 16px 40px; }
+	.ndtv-carousel .wp-block-post-template { grid-auto-columns: 72%; gap: 14px; }
+	.ndtv-carousel.ndtv-rail-shorts .wp-block-post-template { grid-auto-columns: 42%; }
+	.ndtv-carousel__nav { display: none; }
+	.ndtv-channels { flex-wrap: wrap !important; gap: 16px; }
+	.ndtv-channels__title { font-size: 28px; }
+	.ndtv-channels__title br { display: none; }
+	.ndtv-channel { width: 96px; }
+	.ndtv-vgrid .wp-block-post-template, .ndtv-vlisting.is-shorts .wp-block-post-template { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+	.ndtv-vband { padding: 20px 16px; }
+	.ndtv-vband__title { font-size: 24px; }
+	.ndtv-related .wp-block-post-template { grid-template-columns: 1fr !important; }
+	.ndtv-vmeta__title { font-size: 24px; }
+}

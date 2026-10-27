@@ -1,0 +1,56 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"ndtv-container ndtv-archive","layout":{"type":"default"}} -->
+<main class="wp-block-group ndtv-container ndtv-archive">
+<!-- wp:columns {"className":"ndtv-top"} -->
+<div class="wp-block-columns ndtv-top">
+<!-- wp:column {"width":"72%"} -->
+<div class="wp-block-column" style="flex-basis:72%">
+<!-- wp:query-title {"type":"archive","showPrefix":false,"className":"ndtv-archive__title"} /-->
+<!-- wp:term-description /-->
+<!-- wp:query {"queryId":1,"query":{"perPage":15,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"className":"ndtv-listing"} -->
+<div class="wp-block-query ndtv-listing">
+<!-- wp:post-template -->
+<!-- wp:group {"className":"ndtv-listing__item","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+<div class="wp-block-group ndtv-listing__item">
+<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"medium_large","className":"ndtv-listing__thumb"} /-->
+<!-- wp:group {"className":"ndtv-listing__text","layout":{"type":"default"}} -->
+<div class="wp-block-group ndtv-listing__text">
+<!-- wp:post-title {"level":2,"isLink":true} /-->
+<!-- wp:post-excerpt {"excerptLength":24} /-->
+<!-- wp:group {"className":"ndtv-byline","layout":{"type":"flex","flexWrap":"wrap"}} -->
+<div class="wp-block-group ndtv-byline">
+<!-- wp:post-author-name /-->
+<!-- wp:post-date {"format":"M d, Y h:i a T"} /-->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"space-between"}} -->
+<!-- wp:query-pagination-previous /-->
+<!-- wp:query-pagination-numbers /-->
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No stories found.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:column -->
+<!-- wp:column {"width":"28%","className":"ndtv-rail-col"} -->
+<div class="wp-block-column ndtv-rail-col" style="flex-basis:28%">
+<!-- wp:template-part {"slug":"sidebar","tagName":"aside"} /-->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

@@ -1,0 +1,14 @@
+.ndtv-player { margin: 0; }
+.ndtv-player__frame { position: relative; background: #000; overflow: hidden; aspect-ratio: 16 / 9; }
+.ndtv-player.is-vertical .ndtv-player__frame { aspect-ratio: 9 / 16; border-radius: 8px; }
+.ndtv-player__video { display: block; width: 100%; height: 100%; object-fit: cover; background: #000; }
+.ndtv-player__bug { position: absolute; top: 10px; right: 10px; padding: 2px 6px; background: #e21b22; color: #fff; font: 800 11px/1.2 Inter, system-ui, sans-serif; letter-spacing: .04em; pointer-events: none; }
+.ndtv-player__live { position: absolute; top: 10px; left: 10px; display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px; background: #e21b22; color: #fff; font: 700 11px/1.4 Inter, system-ui, sans-serif; border-radius: 2px; pointer-events: none; }
+.ndtv-player__live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: ndtv-pulse 1.2s infinite; }
+.ndtv-player__duration { position: absolute; top: 10px; left: 10px; padding: 1px 6px; background: rgba(0,0,0,.75); color: #fff; font: 600 11px/1.5 Inter, system-ui, sans-serif; border-radius: 2px; pointer-events: none; }
+.ndtv-player__caption { margin-top: 10px; font-family: "Noto Serif", Georgia, serif; font-weight: 500; font-size: 17px; line-height: 1.35; }
+.ndtv-player__caption a { color: inherit; text-decoration: none; }
+.ndtv-player__caption a:hover { color: #e21b22; }
+.ndtv-player__channel { display: block; margin-bottom: 4px; color: #e21b22; font: 700 11px/1.3 Inter, system-ui, sans-serif; text-transform: uppercase; letter-spacing: .05em; }
+@keyframes ndtv-pulse { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { .ndtv-player__live::before { animation: none; } }

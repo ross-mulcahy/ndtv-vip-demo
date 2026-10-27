@@ -1,0 +1,57 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"ndtv-container ndtv-single","layout":{"type":"default"}} -->
+<main class="wp-block-group ndtv-container ndtv-single">
+<!-- wp:columns {"className":"ndtv-top"} -->
+<div class="wp-block-columns ndtv-top">
+<!-- wp:column {"width":"72%"} -->
+<div class="wp-block-column" style="flex-basis:72%">
+<!-- wp:group {"tagName":"article","className":"ndtv-article","layout":{"type":"default"}} -->
+<article class="wp-block-group ndtv-article">
+<!-- wp:post-terms {"term":"category","className":"ndtv-article__section"} /-->
+<!-- wp:post-title {"level":1,"className":"ndtv-article__title"} /-->
+<!-- wp:post-excerpt {"className":"ndtv-article__dek"} /-->
+<!-- wp:group {"className":"ndtv-byline","layout":{"type":"flex","flexWrap":"wrap"}} -->
+<div class="wp-block-group ndtv-byline">
+<!-- wp:post-author-name {"isLink":true} /-->
+<!-- wp:post-date {"format":"M d, Y h:i a T"} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:post-featured-image {"aspectRatio":"16/9","sizeSlug":"large"} /-->
+<!-- wp:post-content {"className":"ndtv-article__body","layout":{"type":"default"}} /-->
+<!-- wp:post-terms {"term":"post_tag","className":"ndtv-article__tags"} /-->
+<!-- wp:group {"className":"ndtv-related","layout":{"type":"default"}} -->
+<div class="wp-block-group ndtv-related">
+<!-- wp:heading {"level":2,"className":"ndtv-related__title"} -->
+<h2 class="wp-block-heading ndtv-related__title">Related Videos</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"queryId":207,"query":{"perPage":3,"pages":0,"offset":0,"postType":"ndtv_video","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"ndtvRail":"related"},"className":"ndtv-rail-related ndtv-vgrid"} -->
+<div class="wp-block-query ndtv-rail-related ndtv-vgrid">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"className":"ndtv-thumb","layout":{"type":"default"}} -->
+<div class="wp-block-group ndtv-thumb">
+<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"medium_large"} /-->
+<!-- wp:ndtv/badge {"type":"duration"} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:post-title {"level":3,"isLink":true} /-->
+<!-- /wp:post-template -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+</article>
+<!-- /wp:group -->
+</div>
+<!-- /wp:column -->
+<!-- wp:column {"width":"28%","className":"ndtv-rail-col"} -->
+<div class="wp-block-column ndtv-rail-col" style="flex-basis:28%">
+<!-- wp:template-part {"slug":"sidebar","tagName":"aside"} /-->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->
