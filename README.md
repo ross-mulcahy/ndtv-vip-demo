@@ -14,7 +14,7 @@ A shallow replica of ndtv.com on WordPress, built for NDTV's technical and edito
 
 Open the demo on WordPress Playground (no install; you're logged in as `admin`):
 
-`https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/<owner>/<repo>/main/blueprint.public.json`
+**https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/ross-mulcahy/ndtv-vip-demo/main/blueprint.public.json**
 
 Places to look:
 - `/video/`: the video hub. Hover a tile to see its preview clip. The NDTV Channels row plays live.
